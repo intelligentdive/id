@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;500;700&display=swap');
+
+
+/* use by mixin
+=============== */
+@mixin primary-font {
+    font-family: 'League Spartan', sans-serif;
+}
+
+@mixin secondary-font {
+    font-family: 'League Spartan', sans-serif;
+}
+
+/* use by class name 
+==================== */
+.primary-font{
+    @include primary-font();
+}
+
+.secondary-font {
+    @include secondary-font();
+}

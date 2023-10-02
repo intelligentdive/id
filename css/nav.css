@@ -1,0 +1,23 @@
+.logo{
+    display: none !important;
+}
+
+.logo-2{
+    display: block !important;
+}
+
+.nav-menu-2 a{
+    color: #fff !important;
+}
+
+.active-position .logo {
+    display: block !important;
+}
+
+.active-position .logo-2 {
+    display: none !important;
+}
+
+.active-position .nav-menu-2 a {
+    color: #222 !important;
+}

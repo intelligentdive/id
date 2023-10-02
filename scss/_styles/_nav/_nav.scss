@@ -1,0 +1,251 @@
+/* Nav Container Style
+---------------------- */
+.nav-container {
+    @include secondary-font();
+    transition: 0.5s;
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    width: 100%;
+
+    &.active-position {
+        box-shadow: 1px 1px 10px rgba(158, 158, 158, 0.473);
+        background: #fff;
+
+        .navbar {
+            .left-col {
+                .logo {
+                    a {
+                        color: #222;
+                    }
+                }
+            }
+
+            .middle-col {
+                .nav-menu {
+                    .nav-link {
+                        .menu-link {
+                            color: #222;
+                        }
+                    }
+                }
+            }
+
+            .right-col {
+                .top-col {
+                    a {
+                        color: #222;
+                    }
+
+                    .btn {
+                        color: #222;
+                        border: 1px solid #222;
+
+                        @include max-width-1023 {
+                            color: #fff;
+                            border: 1px solid #fff;
+                        }
+                    }
+                }
+            }
+
+            #ham-icon {
+                .icon-bar {
+                    background: #222 !important;
+                }
+            }
+        }
+    }
+
+    /* Navbar Style
+    --------------- */
+    .navbar {
+        padding: 0px calc(10px + (80 - 10) * ((100vw - 320px) / ((1440 - 320))));
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: calc(10px + (80 - 10) * ((100vw - 320px) / (1440 - 320)));
+        min-height: 80px;
+
+        @include phone-767 {
+            min-height: 60px;
+        }
+
+        .left-col {
+            .logo {
+                max-width: calc(80px + (123 - 80) * ((100vw - 320px) / (1440 - 320)));
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .logo-2 {
+                max-width: calc(80px + (123 - 80) * ((100vw - 320px) / (1440 - 320)));
+                display: none;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .right-col {
+            display: flex;
+            align-items: center;
+            gap: calc(25px + (50 - 25) * ((100vw - 320px) / (1440 - 320)));
+
+            .nav-menu {
+                display: flex;
+                align-items: center;
+                gap: calc(25px + (50 - 25) * ((100vw - 320px) / (1440 - 320)));
+
+                @include max-width-1023 {
+                    display: none;
+                }
+
+                .nav-link {
+                    .menu-link {
+                        font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1440 - 320)));
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-transform: uppercase;
+
+                        span {
+                            font-size: 70%;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }
+
+        #ham-icon {
+            @include max-width-1023 {
+                display: flex !important;
+
+                .icon-bar {
+                    background: #fff !important;
+                }
+            }
+        }
+    }
+}
+
+/* Nav Overlay Style
+-------------------- */
+#nav-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: calc(10px + (80 - 10) * ((100vw - 320px) / ((1440 - 320))));
+    z-index: 9;
+    background: $primary-bg;
+    padding: 5%;
+
+    @include phone-767 {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-bg {
+        position: absolute;
+        top: 25px;
+        right: 0px;
+        width: calc(100% - 50px);
+        height: calc(100% - 50px);
+        background: $second-bg;
+        z-index: 2;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+
+        @include phone-767 {
+            width: 97%;
+        }
+    }
+
+    .nav-menu {
+        display: grid;
+        gap: calc(20px + (30 - 20) * ((100vw - 320px) / (1440 - 320)));
+        position: relative;
+        z-index: 3;
+
+        .menu-link {
+            text-align: center;
+            overflow: hidden;
+
+            .nav-link {
+                color: #fff;
+                font-size: calc(25px + (45 - 25) * ((100vw - 320px) / (1440 - 320)));
+                display: block;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .line {
+        width: 2px;
+        height: calc(30px + (80 - 30) * ((100vw - 320px) / (1440 - 320)));
+        background: #fff;
+        display: block;
+        position: relative;
+        transform: scaleY(0);
+        z-index: 3;
+
+        @include phone-767 {
+            margin: auto;
+        }
+    }
+
+    .nav-address {
+        display: grid;
+        gap: calc(20px + (30 - 20) * ((100vw - 320px) / (1440 - 320)));
+        position: relative;
+        z-index: 3;
+        top: -20px;
+
+        .address-block {
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+
+            .nav-menu {
+                color: #fff;
+                font-size: calc(18px + (25 - 18) * ((100vw - 320px) / (1440 - 320)));
+                display: flex;
+                align-items: center;
+                gap: calc(10px + (15 - 10) * ((100vw - 320px) / (1440 - 320)));
+                justify-content: center;
+            }
+        }
+    }
+
+    .close {
+        position: fixed;
+        top: calc(45px + (55 - 45) * ((100vw - 320px) / (1440 - 320)));
+        right: calc(40px + (55 - 40) * ((100vw - 320px) / (1440 - 320)));
+        color: #fff;
+        font-size: 21px;
+        cursor: pointer;
+        z-index: 3;
+    }
+}
+
+// @include max-width-1023 {
+//     body {
+//         margin-bottom: 50px;
+//     }
+// }
